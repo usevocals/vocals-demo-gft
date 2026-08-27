@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocals &amp; GFT · Demo en vivo, te llamamos en 1 minuto</title>
+<meta name="description" content="Leave your details and our AI voice agent calls you in 1 minute with a demo built for your company.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://demogft.usevocals.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vocals">
+<meta property="og:url" content="https://demogft.usevocals.com/">
+<meta property="og:title" content="Vocals · Live demo - our AI calls you in 1 minute">
+<meta property="og:description" content="Leave your details and our AI voice agent calls you in 1 minute with a demo built for your company.">
+<meta property="og:image" content="https://demo.usevocals.com/og-image.jpg">
+<meta property="og:image:secure_url" content="https://demo.usevocals.com/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vocals · Live demo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vocals · Live demo - our AI calls you in 1 minute">
+<meta name="twitter:description" content="Leave your details and our AI voice agent calls you in 1 minute with a demo built for your company.">
+<meta name="twitter:image" content="https://demo.usevocals.com/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..800;1,400..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ease-out:cubic-bezier(.23,1,.32,1);
+    --paper:#F6F3EE; --ink:#16130F; --dim:#7C7468; --rule:rgba(22,19,15,.16); --rule-soft:rgba(22,19,15,.08);
+    --violet:#7B6FE0; --violet-soft:rgba(123,111,224,.10); --card:#FCFAF7; --ok:#3E8E5A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html[lang="es"] [data-en]{display:none !important}
+  html[lang="en"] [data-es]{display:none !important}
+  body{font-family:'Inter',system-ui,sans-serif; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column}
+  .top{display:flex; align-items:center; justify-content:space-between; padding:20px 24px; max-width:640px; width:100%; margin:0 auto}
+  .brand{display:flex; align-items:center; text-decoration:none}
+  .brand img{height:26px; width:auto; display:block}
+  .lang{display:flex; border:1px solid var(--rule); border-radius:100px; overflow:hidden}
+  .lang button{font:inherit; font-size:12px; font-weight:600; padding:6px 12px; border:0; background:transparent; color:var(--dim); cursor:pointer; transition:background .2s,color .2s}
+  .lang button.on{background:var(--ink); color:var(--paper)}
+  main{flex:1; width:100%; max-width:640px; margin:0 auto; padding:16px 24px 48px}
+  .badge{display:inline-flex; align-items:center; gap:7px; font-size:11.5px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--violet); background:var(--violet-soft); border:1px solid rgba(123,111,224,.18); padding:5px 11px; border-radius:100px}
+  .badge .dot{width:6px; height:6px; border-radius:50%; background:var(--violet); animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(123,111,224,.45)}70%{box-shadow:0 0 0 7px rgba(123,111,224,0)}100%{box-shadow:0 0 0 0 rgba(123,111,224,0)}}
+  h1{margin:16px 0 8px; font-size:clamp(26px,5.4vw,34px); line-height:1.12; letter-spacing:-.02em; font-weight:800}
+  h1 em{color:var(--violet); font-style:italic}
+  .sub{font-size:15px; line-height:1.55; color:var(--dim); max-width:480px}
+  .card{margin-top:26px; background:var(--card); border:1px solid rgba(22,19,15,.10); border-radius:24px; padding:26px 24px;
+    box-shadow:0 4px 24px rgba(22,19,15,.05), 0 18px 60px rgba(22,19,15,.07); animation:rise .8s .15s var(--ease-out) both}
+  @keyframes rise{from{opacity:0; transform:translateY(14px)}to{opacity:1; transform:none}}
+  form{display:flex; flex-direction:column; gap:14px}
+  .row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .f{display:flex; flex-direction:column; gap:6px}
+  .f label{font-size:12px; font-weight:600}
+  .f label .req{color:var(--violet)}
+  .f input,.f select{font:inherit; font-size:15px; color:var(--ink); background:#fff; border:1px solid rgba(22,19,15,.14); border-radius:11px; padding:12px 13px; width:100%;
+    transition:border-color .15s, box-shadow .15s; -webkit-appearance:none; appearance:none}
+  .f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237C7468' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 13px center; padding-right:34px}
+  .f input:focus,.f select:focus{outline:none; border-color:var(--violet); box-shadow:0 0 0 3px rgba(123,111,224,.15)}
+  .f input::placeholder{color:rgba(22,19,15,.30)}
+  .submit{margin-top:4px; font:inherit; font-size:15.5px; font-weight:600; color:#fff; background:var(--ink); border:0; border-radius:100px; padding:15px 20px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:8px; transition:transform .15s, opacity .15s}
+  .submit:hover{transform:translateY(-1px)}
+  .submit:active{transform:translateY(0)}
+  .submit[disabled]{opacity:.55; cursor:default; transform:none}
+  .note{margin-top:2px; font-size:11.5px; line-height:1.5; color:var(--dim); text-align:center}
+  .fhint{font-size:11.5px; line-height:1.45; color:var(--dim); margin-top:1px}
+  .err{display:none; font-size:13px; color:#c0392b; background:rgba(192,57,43,.07); border:1px solid rgba(192,57,43,.2); border-radius:10px; padding:9px 12px}
+  .err.on{display:block}
+  .done{display:none; flex-direction:column; align-items:center; text-align:center; gap:12px; padding:26px 8px 10px}
+  .done.on{display:flex}
+  .done .chk{width:56px; height:56px; border-radius:50%; background:var(--violet-soft); color:var(--violet); display:flex; align-items:center; justify-content:center; font-size:28px}
+  .done h2{font-size:21px; letter-spacing:-.01em}
+  .done p{font-size:14px; line-height:1.55; color:var(--dim); max-width:340px}
+  .done .from{font-size:12.5px; background:rgba(22,19,15,.05); border-radius:100px; padding:6px 13px}
+  footer{padding:22px 24px 30px; text-align:center; font-family:'Spline Sans Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim)}
+  footer a{color:var(--dim)}
+  @media(max-width:520px){ .row{grid-template-columns:1fr} .card{padding:22px 18px} }
+  @media(prefers-reduced-motion:reduce){ .badge .dot{animation:none} .card{animation:none} .submit:hover{transform:none} }
+
+    .consent{display:flex;align-items:flex-start;gap:10px;margin:2px 0 14px;cursor:pointer}
+    .consent input{appearance:none;-webkit-appearance:none;width:18px;height:18px;flex-shrink:0;
+      margin-top:1px;border:1.5px solid var(--rule,rgba(22,19,15,.28));border-radius:5px;
+      background:#fff;cursor:pointer;transition:background .18s,border-color .18s;position:relative}
+    .consent input:checked{background:var(--ink,#16130F);border-color:var(--ink,#16130F)}
+    .consent input:checked:after{content:"";position:absolute;left:5.5px;top:2px;width:4px;height:9px;
+      border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+    .consent span{font-size:13px;line-height:1.5;color:var(--dim,#7C7468)}
+  
+    .brands{display:flex;align-items:center;gap:14px}
+    .brands .brand img{display:block}
+    .bsep{width:1px;height:22px;background:rgba(22,19,15,.18);display:block}
+    .brands .gft{height:19px;width:auto;display:block;opacity:.92}
+    @media(max-width:520px){.brands{gap:10px}.brands .gft{height:16px}.bsep{height:18px}}
+  </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+
+<div class="top">
+  <div class="brands"><a class="brand" href="https://usevocals.com"><img src="/logo.png" alt="Vocals"></a><span class="bsep" aria-hidden="true"></span><img class="gft" src="/gft-logo.svg" alt="GFT"></div>
+  <div class="lang">
+    <button id="l-es" class="on" onclick="setLang('es')">ES</button>
+    <button id="l-en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<main>
+  <span class="badge"><span class="dot"></span><span data-es>Demo en vivo</span><span data-en>Live demo</span></span>
+  <h1><span data-es>Nuestro agente IA <em>te llama</em> en 1 minuto.</span><span data-en>Our AI agent <em>calls you</em> in 1 minute.</span></h1>
+  <p class="sub"><span data-es>Déjanos tus datos y recibirás una llamada real con una demo construida para tu empresa. Sin agendar nada, sin compromiso.</span><span data-en>Leave your details and you'll get a real call with a demo built for your company. No scheduling, no commitment.</span></p>
+
+  <div class="card">
+    <form id="f" novalidate onsubmit="return submitDemo(event)">
+      <div class="row">
+        <div class="f">
+          <label for="d-name"><span data-es>Nombre</span><span data-en>First name</span> <span class="req">*</span></label>
+          <input id="d-name" name="name" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="f">
+          <label for="d-fam"><span data-es>Apellidos</span><span data-en>Last name</span></label>
+          <input id="d-fam" name="family_name" type="text" autocomplete="family-name">
+        </div>
+      </div>
+      <div class="f">
+        <label for="d-phone"><span data-es>Teléfono (con prefijo)</span><span data-en>Phone (with country code)</span> <span class="req">*</span></label>
+        <input id="d-phone" name="phone" type="tel" inputmode="tel" placeholder="+34 600 111 222" autocomplete="tel" required>
+      </div>
+      <div class="f">
+        <label for="d-email">Email <span class="req">*</span></label>
+        <input id="d-email" name="email" type="email" autocomplete="email" placeholder="tu@empresa.com" required>
+      </div>
+      <div class="f">
+        <label for="d-company"><span data-es>Empresa</span><span data-en>Company</span> <span class="req">*</span></label>
+        <input id="d-company" name="company_name" type="text" autocomplete="organization" required>
+      </div>
+      <div class="f">
+        <label for="d-web"><span data-es>Web de la empresa</span><span data-en>Company website</span> <span class="req">*</span></label>
+        <input id="d-web" name="company_website" type="text" inputmode="url" placeholder="https://tuempresa.com" required>
+            <div class="fhint"><span data-es>Necesitamos la web real de tu empresa: la IA la analiza para preparar tu demo.</span><span data-en>Our AI reads your site to build the demo, so it must be your real company website.</span></div>
+      </div>
+      <div class="f">
+        <label for="d-lang"><span data-es>Idioma de la llamada</span><span data-en>Call language</span></label>
+        <select id="d-lang" name="language">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+      <label class="consent" for="d-consent">
+        <input type="checkbox" id="d-consent" name="consent">
+        <span><span data-es>Acepto que Vocals me llame por teléfono para esta demo y me contacte después sobre el servicio.</span><span data-en>I agree that Vocals may call me for this demo and contact me afterwards about the service.</span></span>
+      </label>
+      <div class="err" id="err"></div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEArqpZqQka_mqEg" data-theme="light" data-size="flexible" data-refresh-expired="auto" data-retry="auto" data-retry-interval="2000" style="margin:0 0 14px"></div>
+      <button class="submit" type="submit" id="sbtn"><span data-es>Recibir mi demo</span><span data-en>Get my demo</span> →</button>
+      <p class="note"><span data-es>Sin compromiso. Te llamamos en menos de un minuto.</span><span data-en>No commitment. We call you in under a minute.</span></p>
+    </form>
+    <div class="done" id="done">
+      <div class="chk">✓</div>
+      <h2><span data-es>¡Listo!</span><span data-en>You're all set!</span></h2>
+      <p><span data-es>Te llamamos en unos segundos con una demo hecha para tu empresa. Atento al teléfono.</span><span data-en>We'll call you in a few seconds with a demo built for your company. Keep your phone handy.</span></p>
+      <span class="from"><span data-es>La llamada viene de</span><span data-en>The call comes from</span>&nbsp;+34 930 344 880</span>
+    </div>
+  </div>
+</main>
+
+<footer><a href="https://usevocals.com">usevocals.com</a> · <span data-es>Agentes de voz IA</span><span data-en>AI voice agents</span></footer>
+
+<script>
+var LANG='es';
+function setLang(l){
+  LANG=l; document.documentElement.lang=l;
+  document.getElementById('l-es').classList.toggle('on', l==='es');
+  document.getElementById('l-en').classList.toggle('on', l==='en');
+  var s=document.getElementById('d-lang'); if(s && !s.dataset.touched) s.value=l;
+  document.title = l==='en' ? 'Vocals · Live demo - we call you in 1 minute' : 'Vocals · Demo en vivo - te llamamos en 1 minuto';
+}
+document.getElementById('d-lang').addEventListener('change',function(){ this.dataset.touched='1'; });
+(function(){
+  var q=new URLSearchParams(location.search).get('lang');
+  setLang(q==='es'?'es':'en');
+})();
+function submitDemo(e){
+  e.preventDefault();
+  var f=e.target, err=document.getElementById('err'), btn=document.getElementById('sbtn');
+  err.classList.remove('on');
+  var d={}, keys=['name','family_name','phone','email','company_name','company_website','language'];
+  keys.forEach(function(k){ var el=f.querySelector('[name="'+k+'"]'); d[k]=el?el.value.trim():''; });
+  function fail(es,en){ err.textContent=(LANG==='en'?en:es); err.classList.add('on'); return false; }
+  if(!d.name||!d.phone||!d.email||!d.company_name||!d.company_website)
+    return fail('Por favor rellena todos los campos obligatorios.','Please fill in all required fields.');
+  if(d.phone.replace(/[^0-9]/g,'').length<8)
+    return fail('Introduce un teléfono válido con prefijo (ej. +34 600 111 222).','Enter a valid phone number with country code (e.g. +34 600 111 222).');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email))
+    return fail('Introduce un email válido.','Enter a valid email address.');
+  if(!/^https?:\/\//i.test(d.company_website)) d.company_website='https://'+d.company_website;
+  var _w = d.company_website.replace(/^https?:\/\//i,'').replace(/^www\./i,'').split(/[\/?#]/)[0].toLowerCase().trim();
+  if(!/^[a-z0-9][a-z0-9-]*(\.[a-z0-9-]+)+$/.test(_w) || _w.split('.').pop().length < 2)
+    return fail('Introduce la web real de tu empresa (por ejemplo: tuempresa.com).','Enter your real company website (e.g. yourcompany.com).');
+  var _banned = ['usevocals.com','vocals.com','example.com','ejemplo.com','test.com','prueba.com','google.com','gmail.com','hotmail.com','facebook.com','instagram.com','asdf.com','aaa.com'];
+  if(_banned.indexOf(_w) >= 0)
+    return fail('Necesitamos la web de TU empresa para preparar la demo, no una genérica.','We need YOUR company website to build the demo, not a generic one.');
+
+  var cons = document.getElementById('d-consent');
+  if(!cons || !cons.checked)
+    return fail('Necesitamos tu permiso para llamarte y contactarte.','We need your permission to call and contact you.');
+  d.consent = true;
+  d.consent_text = (LANG==='en')
+    ? 'I agree that Vocals may call me for this demo and contact me afterwards about the service.'
+    : 'Acepto que Vocals me llame por telefono para esta demo y me contacte despues sobre el servicio.';
+  d.consent_ts = new Date().toISOString();
+  d.source = 'gft';
+  d.partner = 'GFT';
+
+  var tsTok = (window.turnstile ? turnstile.getResponse() : '');
+  if(!tsTok){ if(window.turnstile) turnstile.reset();
+    return fail('La verificacion ha caducado. Espera un segundo y vuelve a enviar.','The verification expired. Wait a second and submit again.'); }
+  d.cf_turnstile_token = tsTok;
+
+  btn.disabled=true; var orig=btn.innerHTML; btn.textContent=(LANG==='en'?'Sending…':'Enviando…');
+  fetch('https://n8n.cashtanic.com/webhook/vocals-demo-request-web',{
+    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d)
+  }).then(function(){
+    if(window.turnstile) turnstile.reset();
+    document.getElementById('f').style.display='none';
+    document.getElementById('done').classList.add('on');
+  }).catch(function(){
+    btn.disabled=false; btn.innerHTML=orig;
+    if(window.turnstile) turnstile.reset();
+    fail('Ha habido un problema. Inténtalo de nuevo.','Something went wrong. Please try again.');
+  });
+  return false;
+}
+</script>
+</body>
+</html>
