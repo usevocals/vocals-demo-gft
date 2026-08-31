@@ -103,7 +103,9 @@
   /* --- puerta de acceso --- */
   html.locked body > .top, html.locked body > main, html.locked body > footer{display:none !important}
   #gate{position:fixed; inset:0; z-index:9999; background:var(--paper); display:none;
-        align-items:center; justify-content:center; padding:24px}
+        align-items:center; justify-content:center; padding:24px; overflow-y:auto}
+  /* en pantallas bajas la caja no cabe centrada: que fluya y se pueda desplazar */
+  @media (max-height:520px){ #gate{align-items:flex-start; padding-top:20px} #gate .marks{margin-bottom:18px} }
   html.locked #gate{display:flex}
   #gate .box{width:100%; max-width:380px; text-align:center}
   #gate .marks{display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:28px}
