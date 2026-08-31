@@ -293,7 +293,7 @@ function submitDemo(e){
 // Candado de la demo GFT. Guardamos los hashes, no las credenciales.
 (function(){ if(sessionStorage.getItem('gft_ok')!=='1'){ document.documentElement.classList.add('locked'); } })();
 var G_USER='2dcc0f6bbfff3c9164a5a04adc9f6109e51d5bc05139ce71cf6858b303aee830';
-var G_PASS='3bef63eebed6a04b0cd8098e6edf67993a31661cfedbe9fd1dd38fa8a6999d15';
+var G_PASS='5e88ea11f4e6c13d1478fa3590ebedc157cad6323899bdb75132e4c8ce8e7b15';
 function sha256(s){
   return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function(b){
     return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');
