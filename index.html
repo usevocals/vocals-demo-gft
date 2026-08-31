@@ -99,10 +99,57 @@
     .bsep{width:1px;height:22px;background:rgba(22,19,15,.18);display:block}
     .brands .gft{height:19px;width:auto;display:block;opacity:.92}
     @media(max-width:520px){.brands{gap:10px}.brands .gft{height:16px}.bsep{height:18px}}
+
+  /* --- puerta de acceso --- */
+  html.locked body > .top, html.locked body > main, html.locked body > footer{display:none !important}
+  #gate{position:fixed; inset:0; z-index:9999; background:var(--paper); display:none;
+        align-items:center; justify-content:center; padding:24px}
+  html.locked #gate{display:flex}
+  #gate .box{width:100%; max-width:380px; text-align:center}
+  #gate .marks{display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:28px}
+  #gate .marks img.v{height:26px; width:auto; display:block}
+  #gate .marks img.g{height:19px; width:auto; display:block; opacity:.92}
+  #gate .marks .sep{width:1px; height:22px; background:var(--rule)}
+  #gate h2{font-size:20px; font-weight:650; letter-spacing:-.01em; margin-bottom:6px}
+  #gate p.lead{font-size:13.5px; color:var(--dim); line-height:1.5; margin-bottom:22px}
+  #gate .fld{text-align:left; margin-bottom:12px}
+  #gate label{display:block; font-size:12px; font-weight:600; color:var(--dim); margin-bottom:6px}
+  #gate input{width:100%; font:inherit; font-size:14.5px; padding:11px 13px; border:1px solid var(--rule);
+              border-radius:10px; background:var(--card); color:var(--ink); transition:border-color .2s}
+  #gate input:focus{outline:0; border-color:var(--violet)}
+  #gate button{width:100%; font:inherit; font-size:14.5px; font-weight:600; padding:12px; margin-top:6px;
+               border:0; border-radius:10px; background:var(--ink); color:var(--paper); cursor:pointer;
+               transition:opacity .2s}
+  #gate button:hover{opacity:.88}
+  #gate .err{font-size:12.5px; color:#B4442E; margin-top:10px; min-height:16px}
   </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
+
+<div id="gate">
+  <div class="box">
+    <div class="marks">
+      <img class="v" src="/logo.png" alt="Vocals">
+      <span class="sep"></span>
+      <img class="g" src="/gft-logo.svg" alt="GFT">
+    </div>
+    <h2><span data-es>Acceso a la demo</span><span data-en>Demo access</span></h2>
+    <p class="lead"><span data-es>Introduce las credenciales que te ha facilitado GFT.</span><span data-en>Enter the credentials provided by GFT.</span></p>
+    <form onsubmit="return gateIn(event)">
+      <div class="fld">
+        <label for="g-user"><span data-es>Usuario</span><span data-en>User</span></label>
+        <input id="g-user" type="email" autocomplete="username" autocapitalize="off" spellcheck="false" required>
+      </div>
+      <div class="fld">
+        <label for="g-pass"><span data-es>Contraseña</span><span data-en>Password</span></label>
+        <input id="g-pass" type="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit"><span data-es>Entrar</span><span data-en>Enter</span></button>
+      <div class="err" id="g-err"></div>
+    </form>
+  </div>
+</div>
 
 <div class="top">
   <div class="brands"><a class="brand" href="https://usevocals.com"><img src="/logo.png" alt="Vocals"></a><span class="bsep" aria-hidden="true"></span><img class="gft" src="/gft-logo.svg" alt="GFT"></div>
@@ -225,7 +272,7 @@ function submitDemo(e){
   d.cf_turnstile_token = tsTok;
 
   btn.disabled=true; var orig=btn.innerHTML; btn.textContent=(LANG==='en'?'Sending…':'Enviando…');
-  fetch('https://n8n.cashtanic.com/webhook/vocals-demo-request-web',{
+  fetch('https://n8n.cashtanic.com/webhook/vocals-demo-request-gft',{
     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d)
   }).then(function(){
     if(window.turnstile) turnstile.reset();
@@ -235,6 +282,35 @@ function submitDemo(e){
     btn.disabled=false; btn.innerHTML=orig;
     if(window.turnstile) turnstile.reset();
     fail('Ha habido un problema. Inténtalo de nuevo.','Something went wrong. Please try again.');
+  });
+  return false;
+}
+</script>
+
+<script>
+// Candado de la demo GFT. Guardamos los hashes, no las credenciales.
+(function(){ if(sessionStorage.getItem('gft_ok')!=='1'){ document.documentElement.classList.add('locked'); } })();
+var G_USER='2dcc0f6bbfff3c9164a5a04adc9f6109e51d5bc05139ce71cf6858b303aee830';
+var G_PASS='3bef63eebed6a04b0cd8098e6edf67993a31661cfedbe9fd1dd38fa8a6999d15';
+function sha256(s){
+  return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function(b){
+    return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');
+  });
+}
+function gateIn(e){
+  e.preventDefault();
+  var u=document.getElementById('g-user').value.trim().toLowerCase();
+  var p=document.getElementById('g-pass').value;
+  var err=document.getElementById('g-err');
+  Promise.all([sha256(u), sha256(p)]).then(function(h){
+    if(h[0]===G_USER && h[1]===G_PASS){
+      sessionStorage.setItem('gft_ok','1');
+      document.documentElement.classList.remove('locked');
+      err.textContent='';
+    } else {
+      err.textContent = (document.documentElement.lang==='en')
+        ? 'Incorrect user or password.' : 'Usuario o contrase\u00f1a incorrectos.';
+    }
   });
   return false;
 }
